@@ -1,1 +1,6 @@
 <p> Hello </p>
+<ul>
+  <% @movies.each do |movie| %>
+    <li><%= movie.title %> -- <%= movie.overview %> -- <%= movie.poster_url%> -- <%= movie.rating %></li>
+  <% end %>
+</ul>

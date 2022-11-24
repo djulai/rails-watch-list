@@ -1,6 +1,6 @@
 <p> Hello from index bookmark </p>
 <ul>
   <% @bookmarks.each do |bookmark| %>
-    <li><%= bookmark.comment %></li>
+    <li><%= bookmark.comment %> movie: <%= bookmark.movie.title%>  list: <%= bookmark.list.name %></li>
   <% end %>
 </ul>
