@@ -3,5 +3,6 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+
+bookmark1 = Bookmark.create(comment: "recommanded by John")
+bookmark2 = Bookmark.create(comment: "Superhero movie revisited in 2020")
