@@ -1,6 +1,11 @@
 <p> Hello from index list </p>
 <ul>
   <% @lists.each do |list| %>
-    <li><%= list.name %></li>
+    <li>
+      <%=list.name %>
+      <%= link_to "bookmarks" , list_bookmarks_path(list) %>
+    </li>
   <% end %>
 </ul>
+
+<%= link_to "Add a new list" , new_list_path %>

@@ -1,28 +1,40 @@
 class BookmarksController < ApplicationController
 
+  before_action :find_list, only: [ :index, :show, :new, :create ]
+
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = @list.bookmarks
   end
 
   def show
-    @bookmark = Bookmark.find(params[:id])
+    @bookmark = @list.bookmarks.find(params[:id])
   end
 
   def new
-    @bookmark = Bookmark.new
+    @bookmark = @list.bookmarks.new
   end
 
   def create
-    @bookmark = Bookmark.new(list_params)
+    @bookmark = @list.bookmarks.new(bookmark_params)
     @bookmark.save
-    # No need for app/views/restaurants/create.html.erb
-    redirect_to bookmarks_path(@bookmark)
+
+    redirect_to list_bookmarks_path(@list)
+  end
+
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+
+    redirect_back(fallback_location: root_path)
   end
 
   private
 
-  def list_params
-    params.require(:bookmark).permit(:comment)
+  def find_list
+    @list = List.find(params[:list_id])
   end
 
+  def bookmark_params
+    params.require(:bookmark).permit(:comment, :movie_id)
+  end
 end

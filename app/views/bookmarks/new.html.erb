@@ -1,5 +1,5 @@
-<%= form_with model: @bookmark do |f| %>
-  <%= f.label :comment %>
-  <%= f.text_field :name %>
-  <%= f.submit %>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>

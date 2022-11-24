@@ -1,6 +1,14 @@
 <p> Hello from index bookmark </p>
 <ul>
   <% @bookmarks.each do |bookmark| %>
-    <li><%= bookmark.comment %> movie: <%= bookmark.movie.title%>  list: <%= bookmark.list.name %></li>
+    <li>
+      <%= bookmark.comment %>
+      movie: <%= bookmark.movie.title%>
+      list: <%= bookmark.list.name %>
+      <%= link_to "Delete a bookmark", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+    </li>
   <% end %>
 </ul>
+
+<%= link_to "Add a new bookmark" , new_list_bookmark_path(@list) %>
