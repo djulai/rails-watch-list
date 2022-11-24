@@ -4,5 +4,3 @@
 # Examples:
 #
 
-bookmark1 = Bookmark.create(comment: "recommanded by John")
-bookmark2 = Bookmark.create(comment: "Superhero movie revisited in 2020")
