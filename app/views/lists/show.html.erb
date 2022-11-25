@@ -1,3 +1,5 @@
 Hello from show list
 
 <%= link_to "Create a new list" , new_list_bookmark_path(@list) %>
+
+<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>

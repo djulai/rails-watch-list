@@ -1,11 +1,28 @@
 
-<ul>
+
+<div class= container>
   <% @lists.each do |list| %>
-    <li>
-      <%=list.name %>
+    <div class="card-product">
+    <%= (image_tag"https://res.cloudinary.com/dwaobpjff/image/upload/v1669375644/cld-sample.jpg", width: 400, height: 300, crop: :fill) %>
+      <div class="card-product-infos">
+      <h2><%=list.name%></h2>
+      <p>Your List</p>
       <%= link_to "bookmarks" , list_bookmarks_path(list) %>
-    </li>
-  <% end %>
-</ul>
+    <% end %>
+    </div>
+  </div>
+</div>
+
 
 <%= link_to "Add a new list" , new_list_path %>
+
+
+<%# <%= cl_image_tag("https://res.cloudinary.com/dwaobpjff/image/upload/v1669375644/cld-sample.jpg",
+      width: 400, height: 300, crop: :fill) %>
+
+
+<%# <%= simple_form_for(@list) do |f| %>
+  <!-- [...] -->
+  <%# <%= f.input :photo, as: :file %>
+  <!-- [...] -->
+<%# <% end %>
